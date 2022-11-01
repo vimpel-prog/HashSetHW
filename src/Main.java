@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,5 +18,39 @@ public class Main {
         pl.removeProduct(orange);
 
         System.out.println(pl);
+        System.out.println();
+////////////////////////////////
+        Recepts olivje = new Recepts("Оливье");
+        Recepts oliva = new Recepts("Оливыч");
+
+        oliva.addToRecept(orange);
+        oliva.addToRecept(apple);
+
+        olivje.addToRecept(apple);
+        olivje.addToRecept(orange);
+
+        CookingBook cookingBook= new CookingBook();
+        cookingBook.addRecept(olivje);
+        cookingBook.addRecept(oliva);
+
+        System.out.println(cookingBook);
+//////////////////////////////////////////
+        Set<Integer> integerSet = new HashSet<>();
+        Random RANDOM = new Random();
+        for (int i = 0; i < 20; i++) {
+            integerSet.add(RANDOM.nextInt(1000));
+        }
+        integerSet.removeIf(integer -> integer % 2 != 0);
+        for (Integer integer : integerSet) {
+            System.out.print(integer+" ");
+        }
+        System.out.println();
+////////////////////////////////////////////
+        MultiTable multiTable =new MultiTable();
+
+        multiTable.printTasks();
+        ///////////////////////
+//     Для четвертого вопроса лучше всего подходит множество HashSet, потому что мы будем искать элементы Интеджер ,
+//        а у них получится хороший ХэшКод и операцию поиска можно будет выполнять за константу времени
     }
 }
